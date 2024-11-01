@@ -3,16 +3,32 @@ Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Tensor 
 
 ![](https://github.com/kuanglab/TFacTomo/blob/main/figures/TFacTomo_Workflow.png)
 
-Reconstructing, Visualizing 3D Gene Expression in the Mouse Olfactory Mucosa
+Reproducing Results on Mouse Olfactory Mucosa
 ------------------------------------------------------------
-####Reconstruction
+#### Reconstruction
 
+* You can skip this step if you just want to use the tensor models already in our repository.
 
+1. Run the tensor model on 1D expression data, PPI network and spatial graphs, and 3D binary mask (where 1s represent no tissue).
 
+```python
+if __name__ == "__main__": 
+  X_x = torch.from_numpy(np.load("data/mouse_olfactory_bulb/corrected_normalized_fitted_lml_data.npy")).to(torch.float)
+  X_y = torch.from_numpy(np.load("data/mouse_olfactory_bulb/corrected_normalized_fitted_dv_data.npy")).to(torch.float)
+  X_z = torch.from_numpy(np.load("data/mouse_olfactory_bulb/corrected_normalized_fitted_ap_data.npy")).to(torch.float)
+  W_g = torch.from_numpy(np.load("data/mouse_olfactory_bulb/expanded_ppi_adjacency_list_diagonal_filled.npy")) .to(torch.float)
+  W_x = torch.from_numpy(np.load("data/mouse_olfactory_bulb/W_x.npy")).to(torch.float)
+  W_y = torch.from_numpy(np.load("data/mouse_olfactory_bulb/W_y.npy")).to(torch.float)
+  W_z = torch.from_numpy(np.load("data/mouse_olfactory_bulb/W_z.npy")).to(torch.float)
+  M = torch.from_numpy(np.swapaxes(np.load("data/mouse_olfactory_bulb/mouse_olfactory_bulb_mask.npy"), 0, 1)).to(torch.float)
+  
+  A = reconstruct([X_x, X_y, X_z], 1-M, [W_g, W_x, W_y, W_z], 50, 0.0001, 0.0001, 1, stop_crit=0.0001, reduction="sum",  max_epoch=500)
+  torch.save(A, "mouse_olfactory_bulb_results.pt")
+```
+2. Save your resulting 2D matrices (Ag, Ax, Ay, Az) as numpy arrays.
 
+#### Visualization
 
-
-####Visualization
 *The provided visualization tool is a modified version of the one in the original Mouse OM paper [1]*
 
 1. Install the reticulate package in R
