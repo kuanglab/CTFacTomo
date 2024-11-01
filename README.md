@@ -22,10 +22,21 @@ if __name__ == "__main__":
   W_z = torch.from_numpy(np.load("data/mouse_olfactory_bulb/W_z.npy")).to(torch.float)
   M = torch.from_numpy(np.swapaxes(np.load("data/mouse_olfactory_bulb/mouse_olfactory_bulb_mask.npy"), 0, 1)).to(torch.float)
   
-  A = reconstruct([X_x, X_y, X_z], 1-M, [W_g, W_x, W_y, W_z], 50, 0.0001, 0.0001, 1, stop_crit=0.0001, reduction="sum",  max_epoch=500)
+  A = reconstruct([X_x, X_y, X_z], 1-M, [W_g, W_x, W_y, W_z], 500, 100, 1, 1, stop_crit=0.0001, reduction="sum",  max_epoch=500)
   torch.save(A, "mouse_olfactory_bulb_results.pt")
 ```
+
 2. Save your resulting 2D matrices (Ag, Ax, Ay, Az) as numpy arrays.
+
+```python
+matrices = torch.load("mouse_om_tensor.pt")
+np.save("Ag.npy", matrices[0])
+np.save("Ax.npy", matrices[1])
+np.save("Ay.npy", matrices[2])
+np.save("Az.npy", matrices[3])
+```
+
+You are done with the reconstruction part of this tutorial. Time to move onto visualization!
 
 #### Visualization
 
