@@ -13,9 +13,9 @@ Reproducing Results on Mouse Olfactory Mucosa
 
 ```python
 if __name__ == "__main__": 
-  X_x = torch.from_numpy(np.load("data/mouse_olfactory_bulb/corrected_normalized_fitted_lml_data.npy")).to(torch.float)
-  X_y = torch.from_numpy(np.load("data/mouse_olfactory_bulb/corrected_normalized_fitted_dv_data.npy")).to(torch.float)
-  X_z = torch.from_numpy(np.load("data/mouse_olfactory_bulb/corrected_normalized_fitted_ap_data.npy")).to(torch.float)
+  X_x = torch.from_numpy(np.load("data/mouse_olfactory_bulb/normalized_fitted_lml_data.npy")).to(torch.float)
+  X_y = torch.from_numpy(np.load("data/mouse_olfactory_bulb/normalized_fitted_dv_data.npy")).to(torch.float)
+  X_z = torch.from_numpy(np.load("data/mouse_olfactory_bulb/normalized_fitted_ap_data.npy")).to(torch.float)
   W_g = torch.from_numpy(np.load("data/mouse_olfactory_bulb/expanded_ppi_adjacency_list_diagonal_filled.npy")) .to(torch.float)
   W_x = torch.from_numpy(np.load("data/mouse_olfactory_bulb/W_x.npy")).to(torch.float)
   W_y = torch.from_numpy(np.load("data/mouse_olfactory_bulb/W_y.npy")).to(torch.float)
