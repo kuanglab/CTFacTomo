@@ -8,6 +8,7 @@ Reproducing Results on Mouse Olfactory Mucosa
 #### Reconstruction
 
 *You can skip this step if you just want to use the tensor models already in our repository.*
+
 *They are stored in vis_OM/tensor_model/*.npy*
 
 1. Run the tensor model on 1D expression data, PPI network and spatial graphs, and 3D binary mask (where 1s represent no tissue).
@@ -51,9 +52,9 @@ You are done with the reconstruction part of this tutorial. Time to move onto vi
 np <- import("numpy") # using the reticulate package to write Python
 genes <- np$loadtxt("genes.txt") 
 A_g <- np$load("tensor_model/Ag.npy")
-A_x <- np$load("tensor_modelAx.npy")
+A_x <- np$load("tensor_model/Ax.npy")
 A_y <- np$load("tensor_model/Ay.npy")
-A_z <- np$load("tensor_modelAz.npy")
+A_z <- np$load("tensor_model/Az.npy")
 ```
 
 References
