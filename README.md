@@ -42,22 +42,17 @@ You are done with the reconstruction part of this tutorial. Time to move onto vi
 
 *The provided visualization tool is a modified version of the one in the original Mouse OM paper [1]*
 
-0. Load in OM_TFacTomo.Rdata 
-1. Install the reticulate package in R
-2. Load in the library 
-3. Load in the genes
-4. Load in the 2D Matrices (Ag, Ax, Ay, Az)
+1. Load in environment variables using OM_TFacTomo.Rdata 
+3. Load in the genes and 2D Matrices (Ag, Ax, Ay, Az)
 
 ```r
 # Assuming your working directory is the vis_OM folder
-install.packages("reticulate")
-library(reticulate)
-np <- import("numpy")
+np <- import("numpy") # using the reticulate package to write Python
 genes <- np$loadtxt("genes.txt") 
-A_g <- np$load("Ag.npy")
-A_x <- np$load("Ax.npy")
-A_y <- np$load("Ay.npy")
-A_z <- np$load("Az.npy")
+A_g <- np$load("tensor_model/Ag.npy")
+A_x <- np$load("tensor_modelAx.npy")
+A_y <- np$load("tensor_model/Ay.npy")
+A_z <- np$load("tensor_modelAz.npy")
 ```
 
 References
