@@ -47,6 +47,18 @@ You are done with the reconstruction part of this tutorial. Time to move onto vi
 3. Load in the genes
 4. Load in the 2D Matrices (Ag, Ax, Ay, Az)
 
+```r
+# Assuming your working directory is the vis_OM folder
+install.packages("reticulate")
+library(reticulate)
+np <- import("numpy")
+genes <- np$loadtxt("ggenes.txt") 
+A_g <- np$load("Ag.npy")
+A_x <- np$load("Ax.npy")
+A_y <- np$load("Ay.npy")
+A_z <- np$load("Az.npy")
+```
+
 References
 _________
 1. Ruiz Tejada Segura,M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
