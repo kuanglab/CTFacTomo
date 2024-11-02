@@ -42,6 +42,7 @@ You are done with the reconstruction part of this tutorial. Time to move onto vi
 
 *The provided visualization tool is a modified version of the one in the original Mouse OM paper [1]*
 
+0. Load in OM_TFacTomo.Rdata 
 1. Install the reticulate package in R
 2. Load in the library 
 3. Load in the genes
@@ -52,7 +53,7 @@ You are done with the reconstruction part of this tutorial. Time to move onto vi
 install.packages("reticulate")
 library(reticulate)
 np <- import("numpy")
-genes <- np$loadtxt("ggenes.txt") 
+genes <- np$loadtxt("genes.txt") 
 A_g <- np$load("Ag.npy")
 A_x <- np$load("Ax.npy")
 A_y <- np$load("Ay.npy")
