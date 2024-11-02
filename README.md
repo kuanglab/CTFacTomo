@@ -7,7 +7,7 @@ Reproducing Results on Mouse Olfactory Mucosa
 ------------------------------------------------------------
 #### Reconstruction
 
-* You can skip this step if you just want to use the tensor models already in our repository.
+*You can skip this step if you just want to use the tensor models already in our repository.*
 
 1. Run the tensor model on 1D expression data, PPI network and spatial graphs, and 3D binary mask (where 1s represent no tissue).
 
