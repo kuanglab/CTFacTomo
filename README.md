@@ -47,12 +47,12 @@ X_x = np.load("data/mouse_olfactory_mucosa/normalized_fitted_lml_data.npy"); X_x
 X_y = np.load("data/mouse_olfactory_mucosa/normalized_fitted_dv_data.npy"); X_y = torch.from_numpy(X_y).to(torch.float)
 X_z = np.load("data/mouse_olfactory_mucosa/normalized_fitted_ap_data.npy"); X_z = torch.from_numpy(X_z).to(torch.float)
 # Load knowledge graphs along gene and spatial axes
-W_g = np.load("data/mouse_olfactory_mucosa/ppi_adjacency_matrix.npy"); W_g = torch.from_numpy(W_g).to(torch.float)
+W_g = np.load("data/mouse_olfactory_mucosa/mus_musculus_ppi_adjacency_matrix.npy"); W_g = torch.from_numpy(W_g).to(torch.float)
 W_x = np.load("data/mouse_olfactory_mucosa/W_x.npy"); W_x = torch.from_numpy(W_x).to(torch.float)
 W_y = np.load("data/mouse_olfactory_mucosa/W_y.npy"); W_y = torch.from_numpy(W_y).to(torch.float)
 W_z = np.load("data/mouse_olfactory_mucosa/W_z.npy"); W_z = torch.from_numpy(W_z).to(torch.float)
 # Load the 3D binary mask 
-M = np.swapaxes(np.load("data/mouse_olfactory_mucosa/mouse_olfactory_mucosa.npy"), 0, 1); M = torch.from_numpy(M).to(torch.float)
+M = np.load("data/mouse_olfactory_mucosa/mouse_olfactory_mucosa_mask.npy"); M = torch.from_numpy(M).to(torch.float)
 
 # Reconstruct 4D expression tensor by setting hyperparameters rank=500, alpha=1e2, beta=1, and lambda=1, where lambda is a
 # hyperparameter controlling l2 regularization on tensor factors, we kept using 1 in our experiments reported in the paper.
