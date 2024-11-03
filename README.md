@@ -96,7 +96,7 @@ A_y <- np$load("vis_OM/tensor_model/A_y.npy")
 A_z <- np$load("vis_OM/tensor_model/A_z.npy")
 
 # Launch R shiny App to see the 3D expression reconstruction interactively  
-shiny(server, ui)
+shinyApp(UI, server)
 ```
 
 References
