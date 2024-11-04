@@ -100,7 +100,7 @@ shinyApp(ui, server)
 ```
 
 #### References
-_________
+
 1. Ruiz Tejada Segura, M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
 
 
