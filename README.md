@@ -95,7 +95,7 @@ A_x <- np$load("vis_OM/tensor_model/A_x.npy")
 A_y <- np$load("vis_OM/tensor_model/A_y.npy")
 A_z <- np$load("vis_OM/tensor_model/A_z.npy")
 
-# Launch R shiny App to see the 3D expression reconstruction interactively  
+# Launch R shiny App to see the 3D expression reconstruction interactively (Under construction ...)
 shinyApp(ui, server)
 ```
 
@@ -104,4 +104,4 @@ shinyApp(ui, server)
 1. Ruiz Tejada Segura, M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
 
 
-(Under construction ...)
+
