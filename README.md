@@ -102,6 +102,7 @@ shinyApp(ui, server)
 #### References
 
 1. Ruiz Tejada Segura, M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
+2. Song, T., Nguyen, Q., & Kuang, R. (2024). Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Tensor Factorization. bioRxiv, 2024-11.
 
 
 
