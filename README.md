@@ -1,7 +1,7 @@
 # CTFacTomo
 CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Collapsed Tensor Factorization
 
-![](https://github.com/kuanglab/TFacTomo/blob/main/figures/TFacTomo_Workflow.png)
+![](https://github.com/kuanglab/CTFacTomo/blob/main/figures/CTFacTomo_Workflow.png)
 
 System and package requirements
 ------------------------------------------------------------
