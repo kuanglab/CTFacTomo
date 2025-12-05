@@ -74,7 +74,7 @@ T = double(tenmat(T, 1, [2 3 4])) # unfold the raw tensor into a gene by voxel m
 T = T(:, find(M == 0)) # select voxels within the mask 
 T_hat = double(tenmat(T_hat, 1, [2 3 4])) # unfold the reconstructed tensor into a gene by voxel matrix
 T_hat = T_hat(:, find(M == 0)) # select voxels within the mask 
-MSE = (T - T_hat) ** 2
+MSE = (T - T_hat).^2
 MAE = abs(T - T_hat)
 spot_R2 = 1 - sum((T - T_hat).^2, 1) ./ sum((T - mean(T, 1)).^2, 1)
 gene_R2 = 1 - sum((T - T_hat).^2, 2) ./ sum((T - mean(T, 2)).^2, 2)
