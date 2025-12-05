@@ -1,22 +1,31 @@
-1. Run the tensor model on 1D spatial gene expression data (tomo-seq), protein-protein interaction (PPI) network and spatial chain graphs, and 3D binary mask (where 0s indicate no tissue covered).
+Run the tensor model on projected spatial gene expression data (simulation), protein-protein interaction (PPI) network, spatial chain graphs, and 3D binary mask (where 0s indicate no tissue covered).
 
 ```python
 # Load required packages
 import torch
 import numpy as np
 import tensorly as tl
-from TFacTomo import reconstruct
+from IPF import IPF 
+from CTFacTomo import reconstruct
+
 # Set tensorly backend as pytorch
 tl.set_backend('pytorch')
 
 # Load 1D gene expression data along different spatial axes
-X_x = np.load("data/mouse_olfactory_mucosa/normalized_fitted_lml_data.npy"); X_x = torch.from_numpy(X_x).to(torch.float)
-X_y = np.load("data/mouse_olfactory_mucosa/normalized_fitted_dv_data.npy"); X_y = torch.from_numpy(X_y).to(torch.float)
-X_z = np.load("data/mouse_olfactory_mucosa/normalized_fitted_ap_data.npy"); X_z = torch.from_numpy(X_z).to(torch.float)
-# Load knowledge graphs along gene and spatial axes
-W_g = np.load("data/mouse_olfactory_mucosa/mus_musculus_ppi_adjacency_matrix.npy"); W_g = torch.from_numpy(W_g).to(torch.float)
-W_x = np.load("data/mouse_olfactory_mucosa/W_x.npy"); W_x = torch.from_numpy(W_x).to(torch.float)
-W_y = np.load("data/mouse_olfactory_mucosa/W_y.npy"); W_y = torch.from_numpy(W_y).to(torch.float)
-W_z = np.load("data/mouse_olfactory_mucosa/W_z.npy"); W_z = torch.from_numpy(W_z).to(torch.float)
-# Load the 3D binary mask 
-M = np.load("data/mouse_olfactory_mucosa/mouse_olfactory_mucosa_mask.npy"); M = torch.from_numpy(M).to(torch.float)
+data = torch.load('data/Drosophila_L2_simulated_data_63x53x21.pt')
+M = data['M']; 
+X_x = data['X_x']; X_x = X_x.to(torch.float32); X_y = data['X_y']; X_y = X_y.to(torch.float32); X_z = data['X_z']; X_z = X_z.to(torch.float32)
+W_g = data['W_g']; W_g = W_g.to(torch.float32); W_x = data['W_x']; W_x = W_x.to(torch.float32); 
+W_y = data['W_y']; W_y = W_y.to(torch.float32); W_z = data['W_z']; W_z = W_z.to(torch.float32);
+
+X = [X_x, X_y, X_z]
+W = [W_g, W_x, W_y, W_z]
+
+# Reconstruct 4D expression tensor by setting hyperparameters rank=180, alpha=1e3, beta=1e-3, and lambda=1
+A = reconstruct(X, 1-M, W, 180, 1e3, 1e-3, 1, reduction='mean', stop_crit=1e-10, max_epoch=501, verbose=True, freq=10)
+T_hat = tl.cp_tensor.cp_to_tensor((None, A))
+
+# Reconstruct 4D expression tensor by using IPF
+T_hat_ = IPF(X, M, max_epoch=501, reduction='mean', normalized=False, verbose=True, freq=10)
+
+# For reconstructing 4D expression tensor with Tomographer, please refer to the original package.
