@@ -1,5 +1,6 @@
 Run the tensor model on projected spatial gene expression data (simulation), protein-protein interaction (PPI) network, spatial chain graphs, and 3D binary mask (where 0s indicate no tissue covered).
 
+#### Drosophila
 ```python
 # Load required packages
 import torch
@@ -26,6 +27,34 @@ A = reconstruct(X, 1-M, W, 180, 1e3, 1e-3, 1, reduction='mean', stop_crit=1e-10,
 T_hat = tl.cp_tensor.cp_to_tensor((None, A))
 
 # Reconstruct 4D expression tensor by using IPF
-T_hat_ = IPF(X, M, max_epoch=501, reduction='mean', normalized=False, verbose=True, freq=10)
+T_hat = IPF(X, M, max_epoch=501, reduction='mean', normalized=False, verbose=True, freq=10)
+```
+#### Human Heart and Mouse Brain 
+```Matlab
+% Please download [MATLAB Tensor Toolbox](https://gitlab.com/tensors/tensor_toolbox) package and add folders to the search path
+addpath('tensor_toolbox');
 
-# For reconstructing 4D expression tensor with Tomographer, please refer to the original package.
+% Human Heart
+% Reconstruct 4D expression tensor by setting hyperparameters rank=99, alpha=1e3, beta=1e-3
+load('Human_simulated_data_20x20x9.mat');
+opts.rank = 99; opts.alpha = 1e4; opts.beta = 1e-2; opts.lambda = 1;
+opts.stopcrit = 1e-2; opts.maxiters = 200; opts.miniters = 50;
+A = reconstruct(T, X, M, W, opts);
+T_hat = tensor(ktensor(A));
+% Reconstruct 4D expression tensor by using IPF
+opts.maxiters = 200;
+T_hat = IPF(X{2}, X{3}, X{4}, M, opts.maxiters);
+
+% Mouse Brain
+% Reconstruct 4D expression tensor by setting hyperparameters rank=99, alpha=1e3, beta=1e-3
+load('Mouse_simulated_data_30x30x30.mat');
+opts.rank = 120; opts.alpha = 1e2; opts.beta = 1e-3; opts.lambda = 1;
+opts.stopcrit = 1e-2; opts.maxiters = 200; opts.miniters = 50;
+A = reconstruct(T, X, M, W, opts);
+T_hat = tensor(ktensor(A));
+% Reconstruct 4D expression tensor by using IPF
+opts.maxiters = 200;
+T_hat = IPF(X{2}, X{3}, X{4}, M, opts.maxiters);
+```
+
+#### For reconstructing 4D expression tensor with Tomographer, please refer to the original package [Tomographer](https://github.com/lamanno-epfl/tomographer).
