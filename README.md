@@ -38,7 +38,7 @@ Reproducing Results on Mouse Olfactory Mucosa
 import torch
 import numpy as np
 import tensorly as tl
-from TFacTomo import reconstruct
+from CTFacTomo import reconstruct
 # Set tensorly backend as pytorch
 tl.set_backend('pytorch')
 
