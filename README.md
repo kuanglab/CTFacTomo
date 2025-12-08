@@ -101,6 +101,7 @@ shinyApp(ui, server)
 
 Reproducing plots for CTFacTomo and IPF evaluation on zebrafish data
 --------------------------------------------------------------------
+Please refer to the [repository linked here](https://github.com/kuanglab/moran-score-alignment) for details about reproducing the quantitative and qualitative analyses of CTFacTomo and IPF when using a Stereo-seq dataset of a zebrafish embryo as the ground truth. 
 
 #### References
 
