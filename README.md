@@ -3,7 +3,11 @@ CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes
 
 ![](https://github.com/kuanglab/CTFacTomo/blob/main/figures/CTFacTomo_Workflow_v2.png)
 
-CTFactTomo (Collapsed tensor factorization for Tomography) is a software developed for reconstruct a 4D tensor from multiple 3D Tomograph data. CTFactTomo contructs a CPD factorizaton of a 4D tensor (x,y,z, genes) based on the x-view, y-view and z-view RNA tomography of each gene. This research work is described [[1]](#1). The following tutorial describes the use of the package on a Mouse Olfactory Mucosa dataset. For reproducing the results in [[1]](#1), please see [Reproducing Experimental Results](#reproducing-experimental-results) for the detail.  
+
+CTFactTomo (Collapsed Tensor Factorization for Tomography) is a software package for reconstructing a 4D tensor from multiple 3D tomographic datasets. Specifically, CTFactTomo constructs a CANDECOMP/PARAFAC (CPD) factorization of a 4D tensor (𝑥,𝑦,𝑧,genes) by integrating x-view, y-view, and z-view RNA tomography data for each gene.
+
+The underlying methodology is described in [[1]](#1). This tutorial demonstrates how to use the package on a mouse olfactory mucosa dataset. To reproduce the experimental results reported in [[1]](#1), please refer to [Reproducing Experimental Results](#reproducing-experimental-results) for detailed instructions.
+ 
 
 System and package requirements
 ------------------------------------------------------------
@@ -25,7 +29,7 @@ The R packages can be downloaded and run with the following library versions (vi
 [reticulate 1.25]
 ```
 
-Application to Mouse Olfactory Mucosa
+## Application to Mouse Olfactory Mucosa
 ------------------------------------------------------------
 #### Reconstruction
 
