@@ -107,13 +107,12 @@ shinyApp(ui, server)
 
 
 ## Reproducing Experimental Results
-
+--------------------------------------------------------------------
 ### Simulation Results
 
 Please see [simulation folder here](https://github.com/kuanglab/CTFacTomo/tree/main/simulation).
 
 ### Moran Score computation for CTFacTomo and IPF evaluation on zebrafish data 
---------------------------------------------------------------------
 Please refer to the [Moran score repository linked here](https://github.com/kuanglab/moran-score-alignment) for details about reproducing the quantitative and qualitative analyses of CTFacTomo and IPF when using a Stereo-seq dataset of a zebrafish embryo as the ground truth. 
 
 
