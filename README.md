@@ -3,7 +3,7 @@ CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes
 
 ![](https://github.com/kuanglab/CTFacTomo/blob/main/figures/CTFacTomo_Workflow_v2.png)
 
-CTFactTomo (Collapsed tensor factorization for Tomography) is a software developed for reconstruct a 4D tensor from multiple 3D Tomograph data. CTFactTomo contructs a CPD factorizaton of a 4D tensor (x,y,z, genes) based on the x-view, y-view and z-view RNA tomography of each gene. This research work is described [[1]](#1). The following tutorial describes the use of the package on a Mouse Olfactory Mucosa dataset. For reproducing the results in [[1]](#1), please see for the detail.  
+CTFactTomo (Collapsed tensor factorization for Tomography) is a software developed for reconstruct a 4D tensor from multiple 3D Tomograph data. CTFactTomo contructs a CPD factorizaton of a 4D tensor (x,y,z, genes) based on the x-view, y-view and z-view RNA tomography of each gene. This research work is described [[1]](#1). The following tutorial describes the use of the package on a Mouse Olfactory Mucosa dataset. For reproducing the results in [[1]](#1), please see [Reproducing Experimental Results](#reproducing-experimental-results) for the detail.  
 
 System and package requirements
 ------------------------------------------------------------
@@ -100,6 +100,17 @@ A_z <- np$load("vis_OM/tensor_model/A_z.npy")
 # Launch R shiny App to see the 3D expression reconstruction interactively (Under construction ...)
 shinyApp(ui, server)
 ```
+
+
+## Reproducing Experimental Results
+
+### Simulation Results
+
+Please see [simulation folder here](https://github.com/kuanglab/CTFacTomo/tree/main/simulation).
+
+### Moran Score computation for CTFacTomo and IPF evaluation on zebrafish data 
+--------------------------------------------------------------------
+Please refer to the [Moran score repository linked here](https://github.com/kuanglab/moran-score-alignment) for details about reproducing the quantitative and qualitative analyses of CTFacTomo and IPF when using a Stereo-seq dataset of a zebrafish embryo as the ground truth. 
 
 
 #### References
