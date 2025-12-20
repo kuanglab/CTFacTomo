@@ -3,6 +3,8 @@ CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes
 
 ![](https://github.com/kuanglab/CTFacTomo/blob/main/figures/CTFacTomo_Workflow_v2.png)
 
+CTFactTomo (Collapsed tensor factorization for Tomography) is a software developed for reconstruct a 4D tensor from multiple 3D Tomograph data. CTFactTomo contructs a CPD factorizaton of a 4D tensor (x,y,z, genes) based on the x-view, y-view and z-view RNA tomography of each gene. This research work is described [[1]](#1). The following tutorial describes the use of the package on a Mouse Olfactory Mucosa dataset. For reproducing the results in [[1]](#1), please see for the detail.  
+
 System and package requirements
 ------------------------------------------------------------
 
@@ -23,7 +25,7 @@ The R packages can be downloaded and run with the following library versions (vi
 [reticulate 1.25]
 ```
 
-Reproducing Results on Mouse Olfactory Mucosa
+Application to Mouse Olfactory Mucosa
 ------------------------------------------------------------
 #### Reconstruction
 
@@ -99,14 +101,12 @@ A_z <- np$load("vis_OM/tensor_model/A_z.npy")
 shinyApp(ui, server)
 ```
 
-Reproducing plots for CTFacTomo and IPF evaluation on zebrafish data
---------------------------------------------------------------------
-Please refer to the [repository linked here](https://github.com/kuanglab/moran-score-alignment) for details about reproducing the quantitative and qualitative analyses of CTFacTomo and IPF when using a Stereo-seq dataset of a zebrafish embryo as the ground truth. 
 
 #### References
 
-1. Ruiz Tejada Segura, M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
-2. Song, T., Nguyen, Q., Broadbent, C. & Kuang, R. (2024). CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Collapsed Tensor Factorization. bioRxiv, 2024-11.
+<a id="1"> 1. Song, T., Nguyen, Q., Broadbent, C. & Kuang, R. (2024). CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Collapsed Tensor Factorization. bioRxiv, 2024-11.
+
+<a id="2"> 2. Ruiz Tejada Segura, M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
 
 
 
