@@ -118,7 +118,7 @@ Please refer to the [Moran score repository linked here](https://github.com/kuan
 
 #### References
 
-<a id="1"> 1. [Song, T., Nguyen, Q., Broadbent, C. & Kuang, R. (2024). CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Collapsed Tensor Factorization. bioRxiv, 2024-11.](https://www.biorxiv.org/content/10.1101/2024.11.11.623086v2.abstract)
+<a id="1"> 1. [Song, T., Nguyen, Q., Broadbent, C. & Kuang, R. (2024). CTFacTomo: Reconstructing 3D Spatial Structures of RNA-Tomography Transcriptomes by Collapsed Tensor Factorization. PLOS Computational Biology 22, no. 3 (2026): e1013457.](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013457)
 
 <a id="2"> 2. Ruiz Tejada Segura, M.L. et al. (2022) A 3D transcriptomics atlas of the mouse nose sheds light on the anatomical logic of smell. Cell Reports, 38, 110547.
 
